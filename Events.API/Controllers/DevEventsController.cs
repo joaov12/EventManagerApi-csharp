@@ -28,7 +28,7 @@ namespace Events.API.Controllers
         {
             var devEvent = _context.DevEvents.SingleOrDefault(d => d.Id == id);
 
-            if(devEvent == null)
+            if (devEvent == null)
             {
                 return NotFound();
             }
@@ -60,7 +60,20 @@ namespace Events.API.Controllers
             return NoContent();
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(Guid id)
+        {
+            var devEvent = _context.DevEvents.SingleOrDefault(d => d.Id == id);
 
+            if (devEvent == null)
+            {
+                return NotFound();
+            }
+
+            devEvent.Delete();
+
+            return NoContent();
+        }
 
 
     }
