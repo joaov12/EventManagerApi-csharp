@@ -45,7 +45,7 @@ namespace Events.API.Controllers
 
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult Update(Guid id, DevEvent input)
         {
             var devEvent = _context.DevEvents.SingleOrDefault(d => d.Id == id);
