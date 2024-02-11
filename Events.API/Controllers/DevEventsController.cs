@@ -45,6 +45,23 @@ namespace Events.API.Controllers
 
         }
 
+        [HttpPut]
+        public IActionResult Update(Guid id, DevEvent input)
+        {
+            var devEvent = _context.DevEvents.SingleOrDefault(d => d.Id == id);
+
+            if (devEvent == null)
+            {
+                return NotFound();
+            }
+
+            devEvent.Update(input.Title, input.Description, input.StartDate, input.EndDate);
+
+            return NoContent();
+        }
+
+
+
 
     }
 }
