@@ -37,6 +37,9 @@ O projeto está estruturado da seguinte forma:
 
 ## 💬 Exemplos de Uso
 
+![Imagem do Swagger](Events.API/Assets/Swagger.PNG)
+
+
 ### Listar todos os eventos
 
 ```http
