@@ -1,4 +1,5 @@
-﻿using Events.API.Persistence;
+﻿using Events.API.Entities;
+using Events.API.Persistence;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Events.API.Controllers
@@ -33,6 +34,15 @@ namespace Events.API.Controllers
             }
 
             return Ok(devEvent);
+        }
+
+        [HttpPost]
+        public IActionResult AddEvent(DevEvent devEvent)
+        {
+            _context.DevEvents.Add(devEvent);
+
+            return CreatedAtAction(nameof(GetById), new { id = devEvent.Id }, devEvent);
+
         }
 
 
