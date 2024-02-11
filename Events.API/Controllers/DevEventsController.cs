@@ -22,6 +22,19 @@ namespace Events.API.Controllers
             return Ok(devEvents);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            var devEvent = _context.DevEvents.SingleOrDefault(d => d.Id == id);
+
+            if(devEvent == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(devEvent);
+        }
+
 
     }
 }
