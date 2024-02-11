@@ -24,6 +24,10 @@
             EndDate = endDate;
         }
 
+        public void Delete()
+        {
+            IsDeleted = true;
+        }
 
     }
 }
